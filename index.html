@@ -1,1 +1,57 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>BB MAP</title>
+    <meta name="viewport" content="initial-scale=1.0, shrink-to-fit=no">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" type="image/png" href="./favicon-karta.png">
+
+  </head>
+
+  <body>
+
+    <div id="map"></div>
+    <div class="footer">
+      <div class="dropup">
+    <button class="dropbtn"><span id="favplaces-text">Favplaces</span><span id="hamburger-icon">&#9776;</span></button>
+    <div class="dropup-content">
+      <a href="#">Link 1</a>
+      <a href="#">Link 2</a>
+      <a href="#">Link 3</a>
+    </div>
+  </div>
+
+
+
+    <div class="zoom">
+      <button id="zoomin">+</button>
+      <button id="zoomout" onClick="popUp()">-</button>
+    </div>
+    <button id="godown">&#8595;</button>
+    <button id="goup">&#8593;</button>
+    <button id="goleft">&#8592;</button>
+    <button id="goright">&#8594;</button>
+
+    <form>
+      <input id="inputField" placeholder="Name your favorite place"  />
+      <button id="submit">submit</button>
+    </form>
+
+  </div>
+
+  <script>
+    function popUp() {
+      alert("Istall as a webb-app");
+    }
+  </script>
+
+    <script src="./src/navigation/navigation.js">
+
+      //google.maps.event.addDomListener(window, 'load', initMap);
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"
+    async defer></script>
+  </body>
+</html>
