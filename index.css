@@ -54,7 +54,7 @@ button:active {
 }
 
 /* Dropup Button */
-.dropbtn {
+.dropbtn, #delete {
   background-color: #3498DB;
   color: white;
   margin-right: 10px;
