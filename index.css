@@ -71,7 +71,7 @@ button:active {
 /* Dropup content (Hidden by Default) */
 .dropup-content {
   display: none;
-  position: absolute;
+  position:absolute;
   bottom: 50px;
   background-color: #f1f1f1;
   min-width: 160px;
