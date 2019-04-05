@@ -63,21 +63,26 @@ var markers = [];
         var kthPlace = document.getElementById('kth');
 
         lovisaPlace.addEventListener('click', function(event) {
-          placeFavMarker(map, {lat: 48.879213, lng: 2.309312},"Lovisa hangs here");
+          var lovisasInfo = "Här brukar Lovisa hänga!";
+          placeFavMarker(map, {lat: 48.879213, lng: 2.309312}, "Lovisa hangs here", lovisasInfo);
         });
 
         vilmasPlace.addEventListener('click', function(event) {
-          placeFavMarker(map, {lat: 59.35024615971273, lng: 18.058984491787896},"Vilmas place");
+          var vilmasInfo = "Här bor Vilma!";
+
+          placeFavMarker(map, {lat: 59.35024615971273, lng: 18.058984491787896}, "Vilmas place", vilmasInfo);
         });
 
         kthPlace.addEventListener('click', function(event) {
-          placeFavMarker(map, {lat: 59.3498092, lng: 18.0684758}, "KTH");
+          var kthInfo = "Här går Lovisa och Vilma i skolan";
+
+          placeFavMarker(map, {lat: 59.3498092, lng: 18.0684758}, "KTH", kthInfo);
         });
 
       }
 
 
-    function placeFavMarker(map, position, label) {
+    function placeFavMarker(map, position, label, info) {
       var marker = new google.maps.Marker({
         position: position,
         map: map,
@@ -89,6 +94,13 @@ var markers = [];
       });
       
       map.setCenter (position);
+      var infowindow = new google.maps.InfoWindow({
+        content: info
+      });
+
+      marker.addListener('mouseover', function() {
+        infowindow.open(map, marker);
+      });
 
 
     }
