@@ -1,6 +1,7 @@
 var map;
 var favList = [];
 var markers = [];
+//hejeje
 
    function Control(controlDiv, map) {
 
