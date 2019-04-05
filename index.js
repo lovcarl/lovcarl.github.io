@@ -98,6 +98,7 @@ var markers = [];
         }
       });
       
+      markers.push(marker);
       map.setCenter (position);
       var infowindow = new google.maps.InfoWindow({
         content: info
@@ -112,7 +113,7 @@ var markers = [];
 
 
     function placeMarker(position, lat, lng) {
-      
+
       var marker = new google.maps.Marker({
         position: position,
         map: map,
