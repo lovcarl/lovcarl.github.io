@@ -69,8 +69,8 @@ var markers = [];
 
 
         vilmasPlace.addEventListener('click', function(event) {
-          placeMarker(59.35024615971273, 18.058984491787896);
-          console.log("lovisa!");
+          placeMarker({lat: 59.35024615971273, lng: 18.058984491787896}, 59.35024615971273, 18.058984491787896);
+          console.log("vilmas!");
         });
 
 
