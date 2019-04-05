@@ -1,7 +1,6 @@
 var map;
 var favList = [];
 var markers = [];
-//hejeje
 
    function Control(controlDiv, map) {
 
@@ -56,6 +55,14 @@ var markers = [];
           console.log(lat);
           console.log(long);
         });
+
+
+        var favPlaces = document.getElementById('lovisas');
+
+        google.maps.event.addListener(favPlaces, 'click', function(event) {
+          console.log("lovisa!");
+        });
+
 
       }
 
