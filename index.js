@@ -1,5 +1,4 @@
 var map;
-var favList = [];
 var markers = [];
 
    function Control(controlDiv, map) {
@@ -58,6 +57,12 @@ var markers = [];
         });
 
 
+        var deleteM = document.getElementById('delete');
+        deleteM.addEventListener('click', function(event) {
+          deleteMarkers();
+        });
+
+
         var lovisaPlace = document.getElementById('lovisas');
         var vilmasPlace = document.getElementById('vilmas');
         var kthPlace = document.getElementById('kth');
@@ -107,6 +112,7 @@ var markers = [];
 
 
     function placeMarker(position, lat, lng) {
+      
       var marker = new google.maps.Marker({
         position: position,
         map: map,
@@ -115,8 +121,9 @@ var markers = [];
           text: "Position: " + lat + ", " + lng,
           color: "#000000",
         }
-        //markers.push(marker);
       });
+
+      markers.push(marker);
 
       google.maps.event.addListener(marker, "dragend", function(event) {
         var longlat = event.latLng;
@@ -129,14 +136,14 @@ var markers = [];
         this.setLabel(label);
       });
 
+    }
 
-      google.maps.event.addListener(marker, "click", function(event) {
-        alert("If you want do add this place to your favorites, label the marker in the input field down below and press submit.")
-        labelingFav(marker);
-        //favList.push(marker);
-        //console.log(favList);
-      });
 
+    function deleteMarkers(){
+
+      for(i=0; i<markers.length; i++){
+        markers[i].setMap(null);
+      }
     }
 
 
