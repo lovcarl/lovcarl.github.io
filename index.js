@@ -2,6 +2,12 @@ var map;
 var favList = [];
 var markers = [];
 
+
+
+
+
+
+
    function Control(controlDiv, map) {
 
         google.maps.event.addDomListener(zoomin, 'click', function() {
@@ -59,39 +65,23 @@ var markers = [];
 
 
         var lovisaPlace = document.getElementById('lovisas');
-        var vilmasPlace = document.getElementById('vilmas');
-        var kthPlace = document.getElementById('kth');
+        var vilmasPlace = document.getElementById('lovisas');
+
 
         lovisaPlace.addEventListener('click', function(event) {
-          placeFavMarker(map, {lat: 48.879213, lng: 2.309312},"Lovisa hangs here");
+          placeMarker();
+          console.log("lovisa!");
         });
+
 
         vilmasPlace.addEventListener('click', function(event) {
-          placeFavMarker(map, {lat: 59.35024615971273, lng: 18.058984491787896},"Vilmas place");
+          placeMarker(59.35024615971273, 18.058984491787896);
+          console.log("lovisa!");
         });
 
-        kthPlace.addEventListener('click', function(event) {
-          placeFavMarker(map, {lat: 59.3498092, lng: 18.0684758}, "KTH");
-        });
+
 
       }
-
-
-    function placeFavMarker(map, position, label) {
-      var marker = new google.maps.Marker({
-        position: position,
-        map: map,
-        draggable: true,
-        label: {
-          text: label,
-          color: "#000000",
-        }
-      });
-      
-      map.setCenter (position);
-
-
-    }
 
 
     function placeMarker(position, lat, lng) {
