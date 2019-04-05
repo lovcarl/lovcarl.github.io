@@ -59,23 +59,39 @@ var markers = [];
 
 
         var lovisaPlace = document.getElementById('lovisas');
-        var vilmasPlace = document.getElementById('lovisas');
+        var vilmasPlace = document.getElementById('vilmas');
+        var kthPlace = document.getElementById('kth');
 
 
         lovisaPlace.addEventListener('click', function(event) {
-          placeMarker();
+          placeFavMarker();
           console.log("lovisa!");
         });
 
 
         vilmasPlace.addEventListener('click', function(event) {
-          placeMarker({lat: 59.35024615971273, lng: 18.058984491787896}, 59.35024615971273, 18.058984491787896);
-          console.log("vilmas!");
+          placeFavMarker({lat: 59.35024615971273, lng: 18.058984491787896}, 59.35024615971273, 18.058984491787896, "Vilmas place");
+        });
+
+        kthPlace.addEventListener('click', function(event) {
+          placeFavMarker({lat: 59.3498092, lng: 18.0684758}, 59.3498092, 18.0684758, "KTH");
         });
 
 
-
       }
+
+
+    function placeFavMarker(position, lat, lng, label) {
+      var marker = new google.maps.Marker({
+        position: position,
+        map: map,
+        draggable: true,
+        label: {
+          text: label,
+          color: "#000000",
+        }
+      });
+    }
 
 
     function placeMarker(position, lat, lng) {
