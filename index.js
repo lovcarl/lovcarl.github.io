@@ -49,6 +49,7 @@ var markers = [];
 
         google.maps.event.addListener(map, 'click', function(event) {
           var longlat = event.latLng;
+          console.log(longlat);
           var lat = longlat.lat();
           var long = longlat.lng()
           placeMarker(longlat, lat, long);
@@ -57,11 +58,21 @@ var markers = [];
         });
 
 
-        var favPlaces = document.getElementById('lovisas');
+        var lovisaPlace = document.getElementById('lovisas');
+        var vilmasPlace = document.getElementById('lovisas');
 
-        google.maps.event.addListener(favPlaces, 'click', function(event) {
+
+        lovisaPlace.addEventListener('click', function(event) {
+          placeMarker();
           console.log("lovisa!");
         });
+
+
+        vilmasPlace.addEventListener('click', function(event) {
+          placeMarker(59.35024615971273, 18.058984491787896);
+          console.log("lovisa!");
+        });
+
 
 
       }
