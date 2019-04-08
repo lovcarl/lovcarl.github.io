@@ -21,7 +21,11 @@ var markers = [];
           var currentPosition = map.getCenter();
           var latitude = currentPosition.lat();
           var longitude = currentPosition.lng();
-          map.setCenter ({lat: (latitude - 0.001), lng: longitude});
+          var currentZoom = map.getZoom();
+
+          var movement = (currentZoom*currentZoom)/10000;
+
+          map.setCenter ({lat: (latitude - movement), lng: longitude});
         });
 
         google.maps.event.addDomListener(goup, 'click', function() {
@@ -97,7 +101,7 @@ var markers = [];
           color: "#000000",
         }
       });
-      
+
       markers.push(marker);
       map.setCenter (position);
       var infowindow = new google.maps.InfoWindow({
